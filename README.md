@@ -1,323 +1,131 @@
-This is my recommended path for learning Haskell.
+# How to learn Haskell
 
-#### Something to keep in mind: *don't sweat the stuff you don't understand immediately*. Just keep moving.
+This is a recommended path for learning Haskell based on experience helping others. A list of recommendations from one of the authors of the [Haskell Book.](http://haskellbook.com)
 
-# Primary course
 
-## What are Haskell, GHC, and Cabal?
+## For non-English speakers
 
-Haskell is a programming language as laid out in the reports, most recent one being in 2010. http://www.haskell.org/onlinereport/haskell2010/
+* [Auf Deutsch](guide-de.md)
 
-GHC is the most popular compiler for Haskell and is what you'll install along with Cabal. Cabal is the project and dependency management tool used with GHC. You almost definitely want both if you're going to start writing Haskell.
+<!-- * [Στην ελληνική](guide-el.md) -->
 
-Cabal is equivalent to Ruby's Bundler, Python's pip, Node's NPM, Maven, etc. GHC manages packaging itself, Cabal chooses what versions to install.
+* [En Español](guide-es.md)
 
-## Getting started
+* [En Français](guide-fr.md)
 
-### Ubuntu
+* [In Italiano](guide-it.md)
 
-This PPA is excellent and is what I use on all my Linux dev and build machines: http://launchpad.net/~hvr/+archive/ghc
+* [Em Português](guide-pt.md)
 
-Specifically:
+* [În Română](guide-ro.md)
 
-- `sudo apt-get update`
-- `sudo apt-get install python-software-properties`
-- `sudo add-apt-repository -y ppa:hvr/ghc`
-- `sudo apt-get update`
-- `sudo apt-get install cabal-install-1.20 ghc-7.8.2 happy-1.19.3 alex-3.1.3`
+* [繁體中文](guide-zh_tw.md)
 
-Then add `~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.2/bin:/opt/happy/1.19.3/bin:/opt/alex/3.1.3/bin` to your PATH (bash_profile, zshrc, bashrc, etc)
+* [简体中文](guide-zh_CN.md)
 
+* [По-русски](guide-ru.md)
 
-### Debian
+* [Українською](guide-ua.md)
 
-Debian can follow the same steps as Ubuntu, but has to execute an additional command. Immediately after `sudo add-apt-repository -y ppa:hvr/ghc` is ran, run:
+* [Bahasa Indonesia](guide-id.md)
 
-- `sudo sed -i s/wheezy/trusty/g /etc/apt/sources.list.d/hvr-ghc-wheezy.list`
+#### *Don't sweat the stuff you don't understand immediately*. Keep moving!
 
-For other Debian versions, just replace all occurences of "wheezy" with your version name in the command above.
+## Community
 
-If, for some reason, the file `/etc/apt/sources.list.d/hvr-ghc-wheezy.list` does not exist, try the same command but with `/etc/apt/sources.list` instead.
+Our IRC channel is `#haskell-beginners` on Freenode.
 
-### Arch Linux
+IRC web client [here](http://webchat.freenode.net/).
 
-To install Haskell from the official repos on Arch Linux
+The haskell [mailing lists](https://wiki.haskell.org/Mailing_lists).
 
-Update your mirrorlist
-- `sudo pacman -Syy`
 
-Download Haskell
-- `sudo pacman -S cabal-install ghc happy alex haddock`
+### Community Guidelines
 
-### Mac OS X
+See [the community guidelines](coc.md) to understand the conduct that is expected in the IRC channel. You'll get a warning if you're not obviously trolling, but be aware the channel is exclusively for those learning or teaching Haskell.
 
-Install the GHC for Mac OS X app, which includes GHC and Cabal. It provides instructions on how to add GHC and Cabal to your path after you've dropped the .app somewhere.
 
-- http://ghcformacosx.github.io/
+# Installing Haskell
 
-### Windows and other Linux users
+## Use Stack to get going with Haskell
 
-Download the latest binary distributions for cabal and ghc:
+Get [Stack](http://haskellstack.org) to get GHC installed and to build your projects.
 
-#### GHC
+If you don't know anything about Stack and would like an overview, check out this [comprehensive Stack video tutorial](https://www.youtube.com/watch?v=sRonIB8ZStw).
 
-GHC is the most popular way to work in the Haskell language. It includes a compiler, REPL (interpreter), package management, and other things besides.
 
-- http://www.haskell.org/ghc/
+## Also, DO NOT INSTALL HASKELL PLATFORM
 
-#### Cabal
+Instead of following the instructions on Haskell.org, get Stack.
 
-Cabal does project management and dependency resolution. It's how you'll install projects, typically into their own sandbox.
+### Why not platform?
 
-- https://www.haskell.org/cabal/download.html
+https://mail.haskell.org/pipermail/haskell-community/2015-September/000014.html
 
-#### Detailed manual install guide for Mac OS X
 
-You don't need this if you use the .app, but if it doesn't work for you, try this with the binary distribution.
+# How should I learn Haskell?
 
-- http://www.davesquared.net/2014/05/platformless-haskell.html
+The core recommendation is to read the lectures and complete all exercises/homework for the Spring 13 version of cis194 followed by the Data61 course. Both are linked below. Everything else can be considered optional and is mentioned so you know where to look.
 
-## Yorgey course - Do this first, this is the primary way I recommend being introduced to Haskell.
+## Alternately...
 
-http://www.seas.upenn.edu/~cis194/lectures.html Brent Yorgey's course is the best I've found so far and replaces both Yann Esposito's HF&H and the NICTA course. This course is particularly valuable as it will not only equip you to write Haskell but also help you understand parser combinators. 
+[@dmvianna](https://github.com/dmvianna) wanted me to let you know that these are just the _free_ recommended resources. If you're willing to check out a book, we heartily recommend our own [Haskell Book!](http://haskellbook.com) That book replaces all of the primary resources recommended here.
 
-## Understanding basic Haskell error messages
+## Yorgey's cis194 course
 
-- http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_understanding_basic_haskell_error_messages.pdf
+> *Do this first*, this is the primary way we recommend being introduced to
+> Haskell.
 
-## Supplementary course that provides more material on intermediate topics
+Available [online](http://www.seas.upenn.edu/~cis194/spring13/lectures.html).
 
-This is Bryan O'Sullivan's online course from the class he teaches at Stanford. If you don't know who he is, take a gander at half the libraries any Haskell application ends up needing and his name is on it. Of particular note if you've already done the Yorgey course are the modules on phantom types, information flow control, language extensions, concurrency, pipes, and lenses.
+[Brent Yorgey](https://byorgey.wordpress.com)'s course is the best I've found so
+far.  This course is valuable as it will not only equip you to write basic
+Haskell but also help you to understand parser combinators.
 
-- http://www.scs.stanford.edu/14sp-cs240h/
+The only reason you shouldn't start with cis194 is if you are not a programmer
+or are an inexperienced one. If that's the case, start with
+[Thompson's book](http://www.haskellcraft.com/craft3e/Home.html) and transition
+to cis194.
 
-## Development Environment
+---
 
-### Emacs
+## Data61 course
 
-- http://tim.dysinger.net/posts/2014-02-18-haskell-with-emacs.html
+> This is the course we recommend doing after Yorgey's cis194 course
 
-- https://github.com/chrisdone/chrisdone-emacs
+Available on github [here](https://github.com/data61/fp-course).
 
-- https://github.com/bitemyapp/dotfiles/
+This will reinforce and give you experience directly implementing the
+abstractions introduced in cis194, this is practice which is *critical* to
+becoming comfortable with everyday uses of Functor/Applicative/Monad/etc. in
+Haskell. Doing cis194 and then the Data61 course represents the core
+recommendation of my guide and is how we teach everyone Haskell.
 
-### Vim
+---
 
-- http://www.haskell.org/haskellwiki/Vim
+## Supplementary course after cis194 and the Data61 course
 
-- http://www.stephendiehl.com/posts/vim_haskell.html
+> Provides more material on intermediate topics
 
-- https://github.com/kazu-yamamoto/ghc-mod
+cs240h is available [online](http://www.scs.stanford.edu/14sp-cs240h/).
 
-- https://github.com/eagletmt/ghcmod-vim
+This is [Bryan O'Sullivan](https://github.com/bos)'s online course from the
+class he teaches at Stanford. If you don't know who he is, take a gander at half
+the libraries any Haskell application ends up needing and his name is on it. Of
+particular note if you've already done the Yorgey course are the modules on
+phantom types, information flow control, language extensions, concurrency,
+pipes, and lenses.
 
-### Sublime Text
+---
 
-- https://github.com/SublimeHaskell/SublimeHaskell
+# Resources for specific topics in Haskell
 
-## FAQ and working with Cabal
+These resources are not vetted or tested with learners as cis194 and Data61 course have been, but they're linked in [the topic listing](specific_topics.md) so you have ideas on where to begin. This includes things like intermediate/advanced concepts and subjects like tooling and text editors.
 
-### Fantastic FAQ
 
-In addition to being an amazing guide for all kinds of things such as GADTs, this also covers some useful basics for Cabal
+## Dialogues
 
-- http://dev.stephendiehl.com/hask/
+> Hosted in this repository [here](dialogues.md).
 
-### Cabal guidelines
-
-- http://katychuang.com/cabal-guide/ Cabal - the simple guide
-
-Cabal Hell was a problem for Haskell users before the introduction of sandboxes. Installing outside of a sandbox will install into your user package-db. This is *not* a good idea except for foundational packages like Cabal, alex, and happy. Nothing else should be installed in the user or global package-dbs unless you know what you're doing.
-
-To experiment with a package or start a project, begin by doing `cabal sandbox init` in a new directory.
-
-Put briefly:
-
-- Always use sandboxes for installing new packages, building new or existing projects, or starting experiments
-- Use `cabal repl` to start a project-scoped ghci instance
-
-The sandbox-based approach I suggest should avoid package-dependency problems, but it's incompatible with the way the Haskell Platform provides pre-built packages. If you're still learning Haskell and don't understand how ghc-pkg and Cabal work, *avoid Platform* and instead use the install instructions earlier in the guide.
-
-## Exercises for practice
-
-You should do Yorgey's course before attempting this: https://github.com/NICTA/course/
-
-## Secondary material, references
-
-[Learn You a Haskell for Great Good (LYAH)](http://learnyouahaskell.com) and [Real World Haskell](http://book.realworldhaskell.org) (Thanks bos!) are available online.
-
-I recommend RWH as a reference (thick book). The chapters for parsing and monads are great for getting a sense for where monads are useful. Other people have said that they've liked it a lot. Perhaps a good follow-up for practical idioms after you've got the essentials of Haskell down?
-
-## For learning some common typeclasses
-
-Useful for understanding `Functor`, `Applicative`, `Monad`, `Monoid` and other typeclasses in general but also some Hask-specific category theory:
-- http://www.haskell.org/haskellwiki/Typeclassopedia
-
-## Search code by type signature
-
-The Hoogle search engine can search by type:
-
-http://www.haskell.org/hoogle/?hoogle=%28a+-%3E+b%29+-%3E+%5ba%5d+-%3E+%5bb%5d
-
-Alternately:
-
-https://www.fpcomplete.com/hoogle
-
-Also Hayoo (which has all of hackage enabled for search by default): http://holumbus.fh-wedel.de/hayoo/hayoo.html
-
-### Setting up your own local instance of Hoogle
-
-https://gist.github.com/bitemyapp/3e6a015760775e0679bf
-
-## Fun Stuff
-
-After you're comfortable with Haskell, strongly consider learning Lenses and Prisms, even if just as a "user". You don't need to understand the underlying category for it to be useful.
-
-Seen here: http://hackage.haskell.org/package/lens
-
-## Frontend/JavaScript
-
-If you need JavaScript, you probably want Purescript for generating JS. Purescript is *not* strictly Haskell but it is very similar and quite pleasant.
-
-- http://www.purescript.org/
-- http://try.purescript.org/
-
-## Laziness, strictness, guarded recursion
-
-- http://chimera.labs.oreilly.com/books/1230000000929/ch02.html Marlow's book about parallelism and concurrency has one of the best introductions to laziness and normal form I've found. Use other material too if it doesn't stick immediately.
-
-- http://augustss.blogspot.hu/2011/05/more-points-for-lazy-evaluation-in.html
-
-- http://alpmestan.com/2013/10/02/oh-my-laziness/
-
-- http://stackoverflow.com/questions/13042353/does-haskell-have-tail-recursive-optimization
-
-- http://www.slideshare.net/tibbe/reasoning-about-laziness
-
-```haskell
-let a = 1 : a -- guarded recursion, (:) is lazy and can be pattern matched.
-let (v : _) = a
-> v
-1
-> head a -- head a == v
-1
-
-let a = 1 * a -- not guarded, (*) is strict
-> a
-*** Exception: <<loop>>
-
-```
-
-- http://www.vex.net/~trebla/haskell/lazy.xhtml
-
-## Parallelism/Concurrency
-
-- http://chimera.labs.oreilly.com/books/1230000000929 This book by Simon Marlow is probably the best I've ever read on the topics of Parallelism and Concurrency: 
-
-- http://kukuruku.co/hub/haskell/haskell-testing-a-multithread-application A thorough walk-through on testing & incremental development of a multi-threaded application in Haskell
-
-- http://www.haskell.org/haskellwiki/Functional_Reactive_Programming
-
-## Recursion Schemes
-
-Some of the crazy *-morphism words you've heard are actually about recursion. NB - before tackling this material you should know how to implement foldr for lists and at least one other data structure, such as a tree. (folds are catamorphisms) Knowing how to implement an unfold (anamorphism) for the same will round things out a bit.
-
-This material dovetails with traversable and foldable.
-
-- http://patrickthomson.ghost.io/an-introduction-to-recursion-schemes/
-
-- http://fho.f12n.de/posts/2014-05-07-dont-fear-the-cat.html - good demonstration of how hylomorphism is the composition of cata and ana.
-
-- http://comonad.com/reader/2009/recursion-schemes/ - this field guide is excellent.
-
-- http://eprints.eemcs.utwente.nl/7281/01/db-utwente-40501F46.pdf
-
-- https://www.fpcomplete.com/user/edwardk/recursion-schemes/catamorphisms
-
-## Lenses and Prisms
-
-People vastly overestimate the difficulty of using Lens. Anybody comfortable with Functor/Foldable/Traversable (or even just the first one) can leverage lenses and prisms to make their life happier.
-
-If you've ever done something like: `(fmap . fmap)` you were "lensing" in your head.
-
-I recommend these two tutorials/introductions:
-
-- https://www.fpcomplete.com/school/to-infinity-and-beyond/pick-of-the-week/a-little-lens-starter-tutorial
-
-- https://github.com/ekmett/lens#lens-lenses-folds-and-traversals
-
-## Type and Category Theory (*not* needed to actually write Haskell, just for those interested!)
-
-If you want to follow up on the type and category theory:
-
-- http://byorgey.wordpress.com/2014/01/14/catsters-guide/ and http://byorgey.wordpress.com/catsters-guide-2/
-
-- http://www.cs.cmu.edu/~rwh/plbook/book.pdf Harper's Practical Foundations for Programming Languages is the best PL focused intro to type theory I've read.
-
-- http://www.quora.com/Category-Theory/What-is-the-best-textbook-for-Category-theory?share=1 Kmett's recommendations
-
-- http://en.wikibooks.org/wiki/Haskell/Category_theory nice diagrams
-
-- http://www.haskell.org/haskellwiki/Category_theory good links to other resources
-
-- http://science.raphael.poss.name/categories-from-scratch.html includes practical examples
-
-- https://www.google.com/search?q=Awodey+Category+Theory the standard text along with MacLane
-
-- http://www.cs.kent.ac.uk/people/staff/sjt/TTFP/
-
-- http://www.cis.upenn.edu/~bcpierce/courses/670Fall04/GreatWorksInPL.shtml Pierce's Great Works in PL list
-
-### Stephen's Nifty "How to get to monad" posts
-
-Didn't know where else to put these:
-
-- http://www.stephendiehl.com/posts/adjunctions.html
-
-- http://www.stephendiehl.com/posts/monads.html
-
-## Parametricity, ad-hoc vs. parametric polymorphism, free theorems
-
-- http://dl.dropboxusercontent.com/u/7810909/media/doc/parametricity.pdf
-
-- https://github.com/tonymorris/parametricity/
-
-- http://swizec.com/blog/week-20-making-ad-hoc-polymorphism-less-ad-hoc/swizec/6564
-
-- http://ttic.uchicago.edu/~dreyer/course/papers/wadler.pdf
-
-## Initial and Final, DSLs, Finally Tagless
-
-- http://martijn.van.steenbergen.nl/journal/2009/10/18/transforming-polymorphic-values/
-
-- http://martijn.van.steenbergen.nl/journal/2009/11/12/gadts-in-haskell-98/
-
-- https://www.fpcomplete.com/user/mutjida/typed-tagless-final-linear-lambda-calculus
-
-- http://okmij.org/ftp/tagless-final/course/course.html
-
-- http://okmij.org/ftp/tagless-final/course/lecture.pdf
-
-- http://existentialtype.wordpress.com/2011/03/21/the-dog-that-didnt-bark/ less specifically relevant but interesting
-
-## Comonads
-
-- https://speakerdeck.com/dmoverton/comonads-in-haskell
-
-- http://stackoverflow.com/questions/16551734/can-a-monad-be-a-comonad
-
-## Yoneda / CoYoneda
-
-- http://stackoverflow.com/questions/24000465/step-by-step-deep-explain-the-power-of-coyoneda-preferably-in-scala-throu
-
-## Dependent typing
-
-- http://bitemyapp.com/posts/2014-04-05-grokking-sums-and-constructors.html squint hard.
-
-- http://okmij.org/ftp/Computation/lightweight-dependent-typing.html
-
-- http://www.idris-lang.org/
-
-## Extended Reading list (some is already included here)
-
-- http://www.stephendiehl.com/posts/essential_haskell.html
+These are actually pretty important and helpful. Look here for deep dives on a
+variety of topics.
